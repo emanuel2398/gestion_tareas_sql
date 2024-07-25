@@ -1,7 +1,7 @@
 /*Crear BD*/
 CREATE DATABASE gestion_tareas;
 USE gestion_tareas;
-/*Crear Tabla usuarios*/
+
 CREATE TABLE usuario (
     idusuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre_apellido VARCHAR(255) NOT NULL,
@@ -31,9 +31,9 @@ CREATE TABLE tarea (
     descripcion TEXT NOT NULL,
     tipo_tarea INT NOT NULL,
     fecha_hora_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    fecha_hora_modificacion DATETIME NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-    estado INT NOT NULL,
-    usuario_asignado INT,
+    fecha_hora_modificacion DATETIME NULL ON UPDATE CURRENT_TIMESTAMP,  
+    estado INT NULL, 
+    usuario_asignado INT NULL,
     tarea_finalizada TINYINT(1) NOT NULL DEFAULT 0,
     FOREIGN KEY (tipo_tarea) REFERENCES tipo_tarea(idtipo_tarea),
     FOREIGN KEY (estado) REFERENCES estado(idestado),
